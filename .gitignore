@@ -1,0 +1,12 @@
+# Dependências
+node_modules/
+
+# Arquivos de Build (Saída do TS)
+dist/
+build/
+out/
+
+# Logs e arquivos de sistema
+npm-debug.log*
+.DS_Store
+.env
