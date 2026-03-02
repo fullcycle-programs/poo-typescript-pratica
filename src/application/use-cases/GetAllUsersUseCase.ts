@@ -1,4 +1,4 @@
-import { User } from "../../Domain/Entity/User";
+import { User } from "../../domain/entity/User";
 import { UserRepositoryInterface } from "../../domain/repository/UserRepositoryInterface"; 
 
 export class GetAllUsersUseCase {

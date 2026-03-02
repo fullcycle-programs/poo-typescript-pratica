@@ -1,5 +1,5 @@
 import { UserRepositoryInterface } from "../../domain/repository/UserRepositoryInterface";
-import { User } from "../../Domain/Entity/User";    
+import { User } from "../../domain/entity/User";    
 
 export class UserRepositoryMemory implements UserRepositoryInterface {
     private users: User[] = []; 
@@ -9,7 +9,7 @@ export class UserRepositoryMemory implements UserRepositoryInterface {
         return user;
     }
 
-    async findById(id: number): Promise<User | null> {
+    async findById(id: string): Promise<User | null> {
         const user = this.users.find(user => user.id === id);
         return user || null;
     }
@@ -27,7 +27,7 @@ export class UserRepositoryMemory implements UserRepositoryInterface {
         return false;
     }
 
-    async delete(id: number): Promise<Boolean> {
+    async delete(id: string): Promise<Boolean> {
         const index = this.users.findIndex(user => user.id === id);
         if (index !== -1) {
             this.users.splice(index, 1);

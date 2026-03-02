@@ -1,0 +1,28 @@
+{
+  "name": "oo-pratica",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/fullcycle-programs/poo-typescript-pratica#readme",
+  "bugs": {
+    "url": "https://github.com/fullcycle-programs/poo-typescript-pratica/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fullcycle-programs/poo-typescript-pratica.git"
+  },
+  "license": "ISC",
+  "author": "Samuel (samuel.msbr@gmail.com)",
+  "type": "commonjs",
+  "main": "src/main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.3.3",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

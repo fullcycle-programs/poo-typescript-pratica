@@ -1,11 +1,11 @@
 export class User {
-    private _id: number
+    private _id: string
     private _name: string
     private _email: string
     private _password: string
 
   constructor(
-    id: number,
+    id: string,
     name: string,
     email: string,
     password: string
@@ -17,12 +17,20 @@ export class User {
     this.validate();
   }
 
-    get id(): number {
+    get id(): string {
         return this._id;
     } 
 
     get name(): string {
         return this._name;
+    }
+
+    get password(): string {
+        return this._password;
+    }
+
+    get email(): string {
+        return this._email;
     }
 
     
