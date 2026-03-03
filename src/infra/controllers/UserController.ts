@@ -16,23 +16,21 @@ export class UserController {
         this.userRepo = new UserRepositoryMemory();
     }
 
-    getAllUsers(req: Request, res: Response) {
-        
+    async getAllUsers(req: Request, res: Response) {        
         const userCase = new GetAllUsersUseCase(this.userRepo);
-        const users = userCase.execute();
+        const users = await userCase.execute();
         res.json({ users });
     }
 
-    createUser(req: Request, res: Response) {      
+   async createUser(req: Request, res: Response) {      
         const userCase = new CreateUserUserCase(this.userRepo); 
         const userData = req.body;  
         const dto = new CreateUserDTO(userData.name, userData.email, userData.password);        
-        const user = userCase.execute(dto);
+        const user = await userCase.execute(dto);
         res.status(201).json({ message: 'User created successfully', user });
-
     }
 
-    getUserById(req: Request, res: Response) {
+    async getUserById(req: Request, res: Response) {
         const userCase = new FindUserByIdUseCase(this.userRepo);
         const id = req.params.id;
         
@@ -40,26 +38,26 @@ export class UserController {
             return res.status(400).json({ message: 'Invalid ID' });
         }
         
-        const user = userCase.execute(id);
+        const user = await userCase.execute(id);
         res.json({ message: `User with ID ${id} retrieved successfully`, user });
     }
 
-    deleteUser(req: Request, res: Response) {
+    async deleteUser(req: Request, res: Response) {
         const userId = req.params.id;
         const userCase = new DeleteUserUseCase(this.userRepo);
         if (typeof userId !== 'string') {
             return res.status(400).json({ message: 'Invalid ID' });
         }
-        userCase.execute(userId);
+        await userCase.execute(userId);
         res.json({ message: `User with ID ${userId} deleted successfully` });   
     }
 
-    updateUser(req: Request, res: Response) {
+    async updateUser(req: Request, res: Response) {
         const userId = req.params.id;
         const userCase = new UpdateUserUseCase(this.userRepo);
         const userData = req.body;
         const dto = new EditUserDTO(userData.id, userData.name, userData.email);
-        const updatedUser = userCase.execute(dto);
+        const updatedUser = await userCase.execute(dto);
         res.json({ message: `User with ID ${userId} updated successfully`, user: updatedUser });
     }
 

@@ -4,7 +4,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/api/users', require('./domain/repository/routes/userRoutes').createUserRoutes());
+app.use('/api/users', require('./infra/routes/userRoutes').createUserRoutes());
 
 const port = process.env.PORT || 3000;
 
