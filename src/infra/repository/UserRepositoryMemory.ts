@@ -4,7 +4,7 @@ import { User } from "../../domain/entity/User";
 export class UserRepositoryMemory implements UserRepositoryInterface {
     private users: User[] = []; 
 
-    async save(user: User): Promise<User> {
+    async save(user: User): Promise<User> { 
         this.users.push(user);
         return user;
     }
