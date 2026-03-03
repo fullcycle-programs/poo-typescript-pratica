@@ -2,7 +2,7 @@ import { User } from "../../domain/entity/User";
 import { UserRepositoryInterface } from "../../domain/repository/UserRepositoryInterface";
 import { CreateUserDTO } from "../dtos/CreateUserDTO";
 
-export class CreateUserService {
+export class CreateUserUserCase {
     
     constructor(private userRepository: UserRepositoryInterface) {}
 
