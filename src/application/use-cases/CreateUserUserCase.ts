@@ -9,7 +9,7 @@ export class CreateUserUserCase {
     async execute(data : CreateUserDTO): Promise<User> { 
         
         const user = new User(
-            data.id, 
+            '',
             data.name, 
             data.email, 
             data.password
